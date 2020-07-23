@@ -1,11 +1,12 @@
 import { FETCH_ARTICLES } from '../actions/index';
 
-export default (state = [], action) => {
+function articleReducer(state = [], action) {
   switch (action.type) {
     case FETCH_ARTICLES:
-      return action.payload;
+      return [...state, ...action.payload];
 
     default:
       return state;
   }
-};
+}
+export default articleReducer;

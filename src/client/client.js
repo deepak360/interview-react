@@ -12,7 +12,9 @@ import { renderRoutes } from 'react-router-config';
 import reducers from './reducers';
 import Routes from './Routes';
 
-const store = createStore(reducers, {}, applyMiddleware(thunk));
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducers, {}, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
